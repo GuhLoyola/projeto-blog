@@ -27,7 +27,7 @@ const PostDetails = () => {
             <Link to='/'>Voltar para os posts</Link>
             <div>
                 <Img src={post.image} alt={post.title} />
-                <h2>{post.title}</h2>
+                <H2>{post.title}</H2>
                 <p>{post.text}</p>
             </div>
         </Section>
@@ -35,7 +35,7 @@ const PostDetails = () => {
 }
 
 const Section = styled.section `
-    background-color: blue;
+    background-color: blueviolet;
     ${props => props.lightgray && css `
         background-color: lightgray;
     `}
@@ -44,6 +44,10 @@ const Section = styled.section `
 
 const Img = styled.img`
     width: 100%;
+`
+
+const H2 = styled.h2`
+    margin: 15px 0;
 `
 
 export { PostDetails }
