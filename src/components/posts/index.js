@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 async function getPosts() {
     const response = await fetch('http://localhost:3000/json/posts.json')
@@ -21,8 +22,10 @@ const PostsList = () => {
         <section>
             {posts.map((post, index) =>
                 <div key={index}>
-                    <img src={post.image} alt="" />
-                    <h2>{post.title}</h2>
+                    <Link to={`/post/${post.id}`}>
+                        <img src={post.image} alt="" />
+                        <h2>{post.title}</h2>
+                    </Link>
                 </div>
             )}
         </section>
