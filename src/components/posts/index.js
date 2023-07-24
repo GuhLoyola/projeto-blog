@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { styled } from 'styled-components'
 
 async function getPosts() {
     const response = await fetch('http://localhost:3000/json/posts.json')
@@ -19,17 +20,51 @@ const PostsList = () => {
     }, [])
 
     return (
-        <section>
+        <Section>
             {posts.map((post, index) =>
                 <div key={index}>
-                    <Link to={`/post/${post.id}`}>
-                        <img src={post.image} alt="" />
-                        <h2>{post.title}</h2>
-                    </Link>
+                    <StyledLink to={`/post/${post.id}`}>
+                        <Img src={post.image} alt="" />
+                        <H2>{post.title}</H2>
+                    </StyledLink>
                 </div>
             )}
-        </section>
+        </Section>
     )
 }
+
+const H2 = styled.h2`
+
+    background-color: #6495ed;
+    color: white;
+    padding: 10px 20px;
+    margin: 15px;
+    width: 200px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #286ce6;
+        transform: scale(1.1);
+    }
+    
+`
+
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
+
+const Section = styled.section`
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+`
+
+const Img = styled.img`
+    width: 500px;
+`
 
 export { PostsList }

@@ -24,7 +24,7 @@ const PostDetails = () => {
 
     return (
         <Section lightgray>
-            <Link to='/'>Voltar para os posts</Link>
+            <StyleLink to='/'>Voltar para os posts</StyleLink>
             <div>
                 <Img src={post.image} alt={post.title} />
                 <H2>{post.title}</H2>
@@ -34,9 +34,9 @@ const PostDetails = () => {
     )
 }
 
-const Section = styled.section `
+const Section = styled.section`
     background-color: blueviolet;
-    ${props => props.lightgray && css `
+    ${props => props.lightgray && css`
         background-color: lightgray;
     `}
     padding: 50px;
@@ -44,10 +44,27 @@ const Section = styled.section `
 
 const Img = styled.img`
     width: 100%;
+    margin-top: 30px;
 `
 
 const H2 = styled.h2`
     margin: 15px 0;
+`
+
+const StyleLink = styled(Link)`
+
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: blueviolet;
+    color: white;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+
+    &:hover  {
+        background-color: #6f1abd;
+    }
+    
 `
 
 export { PostDetails }
